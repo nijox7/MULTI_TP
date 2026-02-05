@@ -88,3 +88,13 @@ On mesure un temps de simulation d'environ 8 secondes.
 On a donc 10 000 000 / 8 = 1 250 000 cycles par secondes.
 
 ### G2
+Il n'y en a pas car c'est le seul composant à demander l'accès au bus.
+
+### G3
+Il y a 8 cycles d'attente dans l'automate du maître lorsqu'il attend la réponse de la RAM.
+
+### G4
+Pour afficher un caractère sur le composant PIBUS_MULTI_TTY il faut 3 cycles à l'automate du maître.
+
+### G5
+![](chronogramme.png)
