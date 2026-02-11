@@ -53,7 +53,6 @@ mfc0 -> 1 cycles
 
 On aura donc environ 26 cycles lors de cet appel système.
 
-(mfc0: "move from coprocessor 0)
 
 
 ## E - Génération du code binaire
@@ -66,3 +65,10 @@ Le code boot doit s'exécuter en modes superviseur car:
 - Un utilisateur ne doit pas pouvoir modifier le boot de la machine car celà pourrait l'endommager
 
 ### E2
+
+
+## Notes
+la => "load address"
+mfc0: "move from coprocessor 0
+SR register -> state register
+eret -> exception return
