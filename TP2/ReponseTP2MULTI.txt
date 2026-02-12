@@ -1,0 +1,41 @@
+F1)
+cycle0: miss cache d'instructions (1cycle)
+cycle1: request/gnt (cache -> bus -> ram)
+cycle2: pibus read_ad select ROM (rafales)
+cycle3: pibus read_dtad
+cycle4: read_dtad
+cycle5: read_dtad fin de la rafale (derniere addresse)
+cycle6: read_data (derniere donnée)
+cycle7: icache miss wait
+cycle8: icache update (1cycle)
+cycle9: IDLE??
+cycle10: InsRsp -> valid no error ins 0x3c1d0200 (première instruction et insère le prochaine octet=la prochaine instruction)
+
+La première transaction du bus correspond à un miss du cache d'instructions qui mène
+à une transaction en rafales d'un mot de 32 bits. Donc octet par octet sur le pibus.
+L'échange est du cache d'instruction à la ROM et il demande le premier mot du segment mémoire seg_reset.
+La première instruction en mémoire a lieu au cycle 10.
+
+
+F2)
+Ctrl+F [sel_ram] -> première occurrence
+
+F3)
+Chercher sel_ram=1 et lock=1 (écriture en rafales depuis la ram)
+
+F4)
+Ctrl+F [sel_tty] -> première occurrence
+
+
+C3)Pour le tty non cachable, comme on veut une réponse en temps réel,
+on ne peut pas se permettre d'avoir de temps en temps une réponse rapide et de
+temps en temps une réponse très lente. De plus, 1 000 000 de cycles pour une fréquence
+de 1MHz équivault à un délai de 1/10^6 * 10^6 = 1 seconde, et le délai pour une transaction
+depuis le tty ne met pas autant de temps. Donc on peut se contenter de ne pas mettre de cache.
+C4) VOIR DEUSPI
+D4) PAS SUR MAIS AU PIRE PG
+E4) A REVOIR?
+E5) A FAIRE
+E8) A FAIRE
+
+
