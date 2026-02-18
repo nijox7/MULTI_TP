@@ -1,5 +1,15 @@
 # Compte-rendu TP1
 
+## Automates et fonctions de génération
+
+!["Page1"](img/automate1.png)
+!["Page2"](img/automate2.png)
+
+## E. Automate du composant PibusSegBcu
+
+### E3
+L'arbitre choisit un maître dans l'état IDLE et dans l'état DT dans le cas où si un autre maître demande l'accès au bus. Le nouveau maître pourra donc demander lorsque le BCU est dans l'état DT puisque l'ancien maître se sera déconnecté dans cet état.
+
 ## F. Modélisation de l'architecture matérielle
 
 ### F1.
@@ -101,10 +111,15 @@ Le résultat se trouve dans le fichier trace.save.
 Il n'y en a pas car c'est le seul composant à demander l'accès au bus.
 
 ### G3
-Il y a 8 cycles d'attente dans l'automate du maître lorsqu'il attend la réponse de la RAM.
+Il y a 2 cycles d'attente dans l'automate du maître lorsqu'il attend la réponse de la RAM.
+Cela est du à la latence de réponse de la ram (2 cycles par défaut dans ce simulateur).
 
 ### G4
 Pour afficher un caractère sur le composant PIBUS_MULTI_TTY il faut 3 cycles à l'automate du maître.
 
 ### G5
-![](chronogramme.png)
+Voici le chronogramme que j'ai réalisé sans utilisé le fichier trace:
+!["Chronogramme sans le fichier trace"](img/chronogramme.png)
+
+Voici le chronogramme final fait avec le fichier trace:
+!["Chronogramme avec le fichier trace"](img/chronogramme_trace.png)
