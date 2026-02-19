@@ -126,3 +126,46 @@ Le PIBUS_FSM n'a pas besoin de signaler qu'une écriture du tampon d'écritures 
 
 ### F4
 <!-- VOIR AUTOMATE FEUILLE -->
+
+### F5
+<!-- VOIR CHRONOGRAMME FEUILLE -->
+Le coût minimal sur le cache d'instruction et de donnée dans le cas d'une lecture qui fait miss est de 6 cycles.
+
+### F6
+On a 2 miss lecture toutes les 4 itérations
+Sans compter les miss écriture on a donc:
+(7 instructions + 10/4 cycles de perdus) * 20 itérations = 190 cycles
+
+On a donc 190 cycles pour exécuter 20 itérations de la boucle.
+
+
+## G - Expérimentation par simulation
+
+Analyse du fichier trace_1000cycles
+
+cycle 31
+premier accès à la ram (miss sur )
+
+### G1
+Le processeur exécute sa première instruction au cycle 0 sur l'instruction "la    $29,    seg_stack_base".
+Le coût de MISS est de 8 cycles.
+
+### G2
+On cherche le miss sur l'adresse de main: 00400000
+On identifie au cycle 28 un miss instructions qui correspond à cette adresse.
+
+### G3
+Un MISS sur le cache de donnée coûte 8 cycles supplémentaire (cycle 29 -> 36)
+
+cycle 73: début itération 
+cycle 108: fin itération
+
+Il termine au cycle 108 la première itération de la boucle.
+L'itération prend 35 cycles.
+
+### G4
+2ème itération: cycle 109 -> 139 = 31 cycles
+3ème itération: cycle 140 -> 170 = 31 cycles
+
+### G5
+Durée totale 697 cycles. (dernière occurrence de l'adresse 0x40002c)
