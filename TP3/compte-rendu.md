@@ -54,7 +54,7 @@ Le cache reste dans le même état et ne fait pas de miss.
 Le MISS_SELECT est indispensable pour les caches qui ne sont pas à correspondance directe. (N_Way > 1)
 
 ### D5
-<!--(automate voir feuille)-->
+!["Automate ICACHE"](img/automate_icache.png)
 A = IREQ.IUNC.IUNC
 B = IREQ.IMISS.!IUNC
 C = !IREQ + IREQ.IUNC.IMISS
@@ -88,7 +88,7 @@ Le miss a lieu sur:
 20 itérations
 2*1/4 Miss pour 1 itération
 2*5 = 10 Miss 
-(voir feuille)
+!["ICACHE après 20 itérations"](img/icache_it.png)
 <!-- VOIR LE TAG -->
 
 ### E3
@@ -97,7 +97,7 @@ B = DREQ.!DUNC
 C = !DREQ.!WRITE
 D = WRITE.WOK
 E = 
-<!-- VOIR AUTOMATE SUR FEUILLE -->
+!["Automate DCACHE"](img/automate_dcache.png)
 
 ### E4
 La différence est lorsque le tampon d'écritures postées est plein, on boucle sur l'état WRITE_REQ.
@@ -125,10 +125,10 @@ L'inconvénient est que lorsque que le buffer est plein, ce qui peut arriver sou
 Le PIBUS_FSM n'a pas besoin de signaler qu'une écriture du tampon d'écritures postées s'est terminée car elle s'exécute en parallèle. Il signale grâce à WOK que le buffer est plein ou pas. L'utilité de la réponse dans le cas d'une écriture est de savoir si on peut à nouveau écrire dedans (tampon vidé) ou non.
 
 ### F4
-<!-- VOIR AUTOMATE FEUILLE -->
+!["Automate Pibus"](img/automate_pibus.png)
 
 ### F5
-<!-- VOIR CHRONOGRAMME FEUILLE -->
+!["Chronogramme"](img/chronogramme.png)
 Le coût minimal sur le cache d'instruction et de donnée dans le cas d'une lecture qui fait miss est de 6 cycles.
 
 ### F6
